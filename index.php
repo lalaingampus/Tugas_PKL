@@ -137,11 +137,17 @@
             include "halaman/edit_login.php";
           }
           //coba2
-          else if ($_GET['page'] == 'q'){
-            include "halaman/qq.php";
+          else if ($_GET['page'] == 'lihat_transaksi'){
+            include "halaman/daftar_transaksi.php";
           }
           else if ($_GET['page'] == 'a'){
+            include "halaman/daftar_transaksi.php";
+          }
+          else if ($_GET['page'] == 'input_transaksi'){
             include "halaman/input_transaksi.php";
+          }
+          else if ($_GET['page'] == 'edit_transaksi'){
+            include "halaman/edit_transaksi.php";
           }
        
         ?> 

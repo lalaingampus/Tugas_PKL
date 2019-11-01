@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     $update = $_POST['sysUpdate'];
 
     // buat query
-    $sql = "INSERT INTO tb_transaksi VALUES(null, '$no_reg', '$ftr', '$fng', '$date', '$date2', '$date3','$ver', '$apk', '$ket', '$pgm', '$prb', '$update')";
+    $sql = "INSERT INTO tb_transaksi VALUES(null, '$no_reg', '$date', '$date1', '$apk', '$ver', '$date2','$ftr', '$fng', '$ket', '$prb', '$pgm', '$update')";
     $query = mysqli_query($conn, $sql);
 
     // apakah query simpan berhasil?

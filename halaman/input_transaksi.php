@@ -35,7 +35,7 @@
   <!-- Breadcrumbs-->
   <ol class="breadcrumb">
     <li class="breadcrumb-item">
-      <a href="?page=lihat_cluster">Transaksi</a>
+      <a href="?page=lihat_transaksi">Transaksi</a>
     </li>
     <li class="breadcrumb-item active">Input Transaksi</li>
   </ol> 
@@ -54,7 +54,7 @@
             <div class="form-group row">
               <label for="KDCL" class="col-sm-4 col-form-label">Nomor Registrasi</label>
               <div class="col-sm-6">
-                <input type="text" name="no_reg" placeholder="Nomor Registrasi" class="form-control">
+                <input type="text" name="no_reg" placeholder="Nomor Registrasi" class="form-control" >
               </div>
             </div>
 
@@ -96,21 +96,21 @@
             <div class="form-group row">
               <label for="exampleFormControlTextarea1"  class="col-sm-4 col-form-label">Fitur</label>
               <div class="col-sm-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fitur" placeholder="Tuliskan Fitur yang Telah Diprbaharui ..."></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1"  name="fitur" placeholder="Tuliskan Fitur yang Telah Diperbaharui ..."></textarea>
               </div>
             </div>  
 
             <div class="form-group row">
               <label for="exampleFormControlTextarea1"  class="col-sm-4 col-form-label">Fungsi</label>
               <div class="col-sm-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fungsi" placeholder="Tuliskan Fungsi yang Telah Diprbaharui ..."></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="fungsi" placeholder="Tuliskan Fungsi yang Telah Diperbaharui ..."></textarea>
               </div>
             </div> 
 
             <div class="form-group row">
               <label for="exampleFormControlTextarea1"  class="col-sm-4 col-form-label">Keterangan</label>
               <div class="col-sm-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan" placeholder="Tuliskan Keterangan Version ..."></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1"  name="keterangan" placeholder="Tuliskan Keterangan Version ..."></textarea>
               </div>
             </div>
 

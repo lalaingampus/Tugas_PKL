@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 01, 2019 at 07:49 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 01, 2019 at 11:07 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -159,6 +159,14 @@ CREATE TABLE `tb_transaksi` (
   `sysUpdate` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_transaksi`
+--
+
+INSERT INTO `tb_transaksi` (`Kd_Transaksi`, `No_Registrasi`, `Tgl_Masuk`, `Tgl_Selesai`, `aplikasi`, `versi`, `Tgl_Info`, `fitur`, `fungsi`, `keterangan`, `perubahan`, `pengembangan`, `sysUpdate`) VALUES
+(4, '1234', '0000-00-00', '0000-00-00', '19-12-03', '19-11-09', '0000-00-00', 'adadaa', 'dadaad', 'sddsdsda', '--- Pilih Jenis Perubahan ---', '--- Pilih Jenis Pengembangan ---', '--- Pilih Jenis Update ---'),
+(6, '', '2019-11-18', '2019-11-12', '', '', '1970-01-01', '', '', '', 'Emergency', 'Major', 'Penyempurnaan');
+
 -- --------------------------------------------------------
 
 --
@@ -244,7 +252,7 @@ ALTER TABLE `tb_regis`
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `Kd_Transaksi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `Kd_Transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

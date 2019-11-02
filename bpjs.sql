@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 01, 2019 at 11:07 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Host: localhost
+-- Generation Time: Nov 02, 2019 at 10:17 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -127,15 +127,16 @@ CREATE TABLE `tb_regis` (
   `Kd_Login` int(10) NOT NULL,
   `Nm_Login` varchar(100) NOT NULL,
   `Eml_Login` varchar(100) NOT NULL,
-  `Pass_Login` varchar(100) NOT NULL
+  `Pass_Login` varchar(100) NOT NULL,
+  `level` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_regis`
 --
 
-INSERT INTO `tb_regis` (`Kd_Login`, `Nm_Login`, `Eml_Login`, `Pass_Login`) VALUES
-(1, 'lwer', 'pow@mai.com', '$2y$10$GEjEVAV.gtQX1kQ.TEmLae3dHgwxKPed.0vHxNlmDT886ykse.r9.');
+INSERT INTO `tb_regis` (`Kd_Login`, `Nm_Login`, `Eml_Login`, `Pass_Login`, `level`) VALUES
+(1, 'lwer', 'pow@mai.com', '$2y$10$GEjEVAV.gtQX1kQ.TEmLae3dHgwxKPed.0vHxNlmDT886ykse.r9.', '');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,6 @@ CREATE TABLE `tb_transaksi` (
   `No_Registrasi` varchar(100) NOT NULL,
   `Tgl_Masuk` date NOT NULL,
   `Tgl_Selesai` date NOT NULL,
-  `aplikasi` varchar(100) NOT NULL,
   `versi` varchar(100) NOT NULL,
   `Tgl_Info` date NOT NULL,
   `fitur` text NOT NULL,
@@ -156,16 +156,17 @@ CREATE TABLE `tb_transaksi` (
   `keterangan` varchar(100) NOT NULL,
   `perubahan` varchar(100) NOT NULL,
   `pengembangan` varchar(100) NOT NULL,
-  `sysUpdate` varchar(100) NOT NULL
+  `sysUpdate` varchar(100) NOT NULL,
+  `KdApk` varchar(10) CHARACTER SET latin1 NOT NULL,
+  `KdUser` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_transaksi`
 --
 
-INSERT INTO `tb_transaksi` (`Kd_Transaksi`, `No_Registrasi`, `Tgl_Masuk`, `Tgl_Selesai`, `aplikasi`, `versi`, `Tgl_Info`, `fitur`, `fungsi`, `keterangan`, `perubahan`, `pengembangan`, `sysUpdate`) VALUES
-(4, '1234', '0000-00-00', '0000-00-00', '19-12-03', '19-11-09', '0000-00-00', 'adadaa', 'dadaad', 'sddsdsda', '--- Pilih Jenis Perubahan ---', '--- Pilih Jenis Pengembangan ---', '--- Pilih Jenis Update ---'),
-(6, '', '2019-11-18', '2019-11-12', '', '', '1970-01-01', '', '', '', 'Emergency', 'Major', 'Penyempurnaan');
+INSERT INTO `tb_transaksi` (`Kd_Transaksi`, `No_Registrasi`, `Tgl_Masuk`, `Tgl_Selesai`, `versi`, `Tgl_Info`, `fitur`, `fungsi`, `keterangan`, `perubahan`, `pengembangan`, `sysUpdate`, `KdApk`, `KdUser`) VALUES
+(13, '123', '2019-11-19', '2019-11-13', '123', '2019-11-07', 'apa ya', 'apa ya', 'apa ya', 'Emergency', 'AdHoc', 'System Baru', '', 0);
 
 -- --------------------------------------------------------
 
@@ -230,7 +231,8 @@ ALTER TABLE `tb_regis`
 -- Indexes for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  ADD PRIMARY KEY (`Kd_Transaksi`);
+  ADD PRIMARY KEY (`Kd_Transaksi`),
+  ADD KEY `tb_transaksi1` (`KdApk`);
 
 --
 -- Indexes for table `tb_ws`
@@ -252,7 +254,7 @@ ALTER TABLE `tb_regis`
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `Kd_Transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Kd_Transaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -266,6 +268,12 @@ ALTER TABLE `tb_apk`
   ADD CONSTRAINT `tb_apk_ibfk_2` FOREIGN KEY (`KdCluster`) REFERENCES `tb_cluster` (`Kd_Cluster`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `tb_apk_ibfk_3` FOREIGN KEY (`KdDB`) REFERENCES `tb_db` (`Kd_DB`),
   ADD CONSTRAINT `tb_apk_ibfk_4` FOREIGN KEY (`KdWS`) REFERENCES `tb_ws` (`Kd_WebSrv`);
+
+--
+-- Constraints for table `tb_transaksi`
+--
+ALTER TABLE `tb_transaksi`
+  ADD CONSTRAINT `tb_transaksi1` FOREIGN KEY (`KdApk`) REFERENCES `tb_apk` (`Kd_Apk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

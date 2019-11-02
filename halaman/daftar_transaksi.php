@@ -8,7 +8,7 @@ $result = mysqli_query($conn, $sql);
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="index.html">Transaksi</a>
+    <a href="index.php">Transaksi</a>
   </li>
   <li class="breadcrumb-item active">Daftar Transaksi</li>
 </ol>
@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
           <th>Versi</th>
           <th>Fitur</th>
           <th>Fungsi</th>
-          <th>Edit</th>
+          <th>Aksi</th>
         </tr>
       </thead>
       <tbody>

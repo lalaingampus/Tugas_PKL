@@ -50,7 +50,7 @@
       <div class="row"> 
         <div class="col-3"></div>
         <div class="col-8">
-          <form action="Proses/proses-inputtransaksi.php" method="POST">
+          <form action="Proses/proses-inputtransaksi.php" method="POST" enctype="multipart/form-data">
             <div class="form-group row">
               <label for="KDCL" class="col-sm-4 col-form-label">Nomor Registrasi</label>
               <div class="col-sm-6">
@@ -146,16 +146,30 @@
                   <option selected>--- Pilih Jenis Update ---</option>
                   <option value="System Baru">System Baru</option>
                   <option value="Penyempurnaan">Penyempurnaan</option>
-                  <option value="Perbaikn">Perbaikn</option>
+                  <option value="Perbaikan">Perbaikn</option>
                 </select>
               </div>
             </div>
+
+           <div class="form-group row">
+              <label for="NMCL" class="col-sm-4 col-form-label">User Manual</label>
+              <div class="col-sm-6">
+                <input type="file" class="form-control" name="pdf" id="tgl">
+              </div>
+            </div>           
 
             <div class="form-group row">
               <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary btn-block" value="Submit" name="submit">Submit</button>
               </div>
             </div>
+
+          <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="reset" class="btn btn-danger btn-block" value="Reset" name="submit">Reset</button>
+              </div>
+            </div>
+
           </form>
         </span> 
       </div>

@@ -48,9 +48,9 @@ $stmt = mysqli_query( $conn, $tsql);
     <table id="datatables" class="table table-bordered table-sm table-hover table-striped">
       <thead class = "bg-success text-white">
          <tr align="center" class="small">
-          <th width="30px">No</th>
-          <th width="60px">Kode Aplikasi</th>
-          <th width="140px">Nama Aplikasi</th>
+          <th width="30px" >No</th>
+          <th width="100px">Kode Aplikasi</th>
+          <th width="100px">Nama Aplikasi</th>
           <th>Cluster</th>
           <th>Database</th>
           <th>Web Server</th>

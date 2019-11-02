@@ -31,7 +31,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bismillah</title>
+	<title>Admin Dashboard</title>
 	
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -127,6 +127,17 @@
             include "halaman/edit_webserv.php";
           }
           //Login
+          else if ($_GET['page'] == 'input_login'){
+            include "halaman/input_login.php";
+          }
+          else if ($_GET['page'] == 'lihat_login'){
+            include "halaman/daftar_login.php";
+          }
+          else if ($_GET['page'] == 'edit_login'){
+            include "halaman/edit_login.php";
+          }
+          
+          // User
           else if ($_GET['page'] == 'input_login'){
             include "halaman/input_login.php";
           }

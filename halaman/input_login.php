@@ -9,7 +9,7 @@
   <!-- Page Content -->
 <div class="card">
   <div class="card-header text-center font-weight-bold">
-    Input Login
+    Input Login 
   </div> 
   <div class="card-body">
     <div class="container">

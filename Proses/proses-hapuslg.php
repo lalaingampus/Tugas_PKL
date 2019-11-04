@@ -3,7 +3,7 @@ include "konek.php";
 
 $kd = $_GET['kode'];
 
-$sql = "DELETE FROM tb_login WHERE Kd_Login='$kd'";
+$sql = "DELETE FROM tb_regis WHERE Kd_Login='$kd'";
 $query = mysqli_query($conn, $sql);
 
 
@@ -22,10 +22,5 @@ if( $query ) {
 } 
 else {
     // kalau gagal alihkan ke halaman indek.php dengan status=gagal
-    echo "Error in executing query.</br>";
-    	die( print_r( sqlsrv_errors(), true));
     header('Location: ../index.php?status=gagal&page=lihat_login');
 }
-
-sqlsrv_free_stmt( $stmt);
-sqlsrv_close( $conn);

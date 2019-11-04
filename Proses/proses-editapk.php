@@ -18,18 +18,16 @@ if (isset($_POST['submit'])){
     $cl = $_POST['cl'];
     $st = $_POST['status'];
     $fs = $_POST['fungsi'];
-	$tsql = "Update TB_Apk set Nm_Apk = '$nm', KdCluster='$cl', IP_Apk = '$ip', Sts_Apk = '$st', URL_Apk = '$url', Fungsi_Apk = '$fs', KdDB = '$db', KdWS = '$ws', KdLogin = '$lg', Tgl_GoLive_Apk = '$date' where Kd_Apk = '$pk'";
+	$tsql = "Update TB_Apk set Nm_Apk = '$nm', KdCluster='$cl', IP_Apk = '$ip', Sts_Apk = '$st', URL_Apk = '$url', Fungsi_Apk = '$fs', KdDB = '$db', KdWS = '$ws', Tgl_GoLive_Apk = '$date', KdRegis = '$lg' where Kd_Apk = '$pk'";
 
 	$stmt = mysqli_query( $conn, $tsql);
 
-	if( $stmt === false ) {
-    	echo "Error in executing query.</br>";
-    	die( print_r( mysqli_errors(), true));
-    	header('location:../index.php');
+	if( $stmt) {
+    	
+    	header('location:../index.php?status=sukses&page=lihat_apk');
 	}
 	else{
-		header('location:../index.php?status=sukses&page=lihat_apk');
+		header('location:../index.php?status=gagal&page=lihat_apk');
 	}
-	mysqli_free_stmt( $stmt);
-	mysqli_close( $conn);
+	
 }

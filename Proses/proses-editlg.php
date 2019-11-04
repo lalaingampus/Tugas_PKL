@@ -6,18 +6,20 @@ if (isset($_POST['submit'])){
 	$pk = $_POST['kodepk'];
 	//$kd = $_POST['kode'];
 	$nm= $_POST['nama_lg'];
-	$tsql = "Update tb_login set Nm_Login = '$nm' where Kd_Login = '$pk'";
+	$em= $_POST['eml_lg'];
+	$status= $_POST['level'];
+
+	$tsql = "UPDATE tb_regis SET Nm_Login = '$nm', Eml_Login = '$em', user_type = '$status' WHERE Kd_Login = '$pk'";
 
 	$stmt = mysqli_query( $conn, $tsql);
 
-	if( $stmt === false ) {
-    	echo "Error in executing query.</br>";
-    	die( print_r( sqlsrv_errors(), true));
-    	header('location:../index.php');
+	if( $stmt  ) {
+    	header('location:../index.php?status=sukses&page=lihat_login');;
 	}
 	else{
-		header('location:../index.php?status=sukses&page=lihat_login');
+		header('location:../index.php?status=gagal&page=lihat_login');
 	}
-	sqlsrv_free_stmt( $stmt);
-	sqlsrv_close( $conn);
 }
+
+?>
+	

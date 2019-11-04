@@ -3,7 +3,7 @@ $kode = $_GET['kode'];
 
 // buat query untuk ambil data dari database
 //$data=mssql_fetch_array(mssql_query("select * from TB_Cluster where KDCluster ='$kode'"));
-$sql = "select * from tb_login where Kd_Login = '$kode'";
+$sql = "select * from tb_regis where Kd_Login = '$kode'";
 $query = mysqli_query($conn, $sql);
 $lg = mysqli_fetch_array($query);
 //var_dump($clust)
@@ -11,17 +11,17 @@ $lg = mysqli_fetch_array($query);
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="?page=lihat_login">Login</a>
+    <a href="?page=lihat_login">User</a>
   </li>
   <li class="breadcrumb-item active">
-    <a ">Edit Logim</a>
+    <a>Edit User</a>
   </li>
 </ol> 
 
   <!-- Page Content -->
 <div class="card">
   <div class="card-header text-center font-weight-bold">
-    Edit Login : <?php echo $lg['Nm_Login'] ?>
+    Edit User : <?php echo $lg['Nm_Login'] ?>
    </div> 
   <div class="card-body">
   	<div class="container">
@@ -33,15 +33,25 @@ $lg = mysqli_fetch_array($query);
 		      <input type="hidden" name="kodepk" value="<?php echo $lg['Kd_Login'] ?>" />
 		      <label for="KDCL" class="col-sm-4 col-form-label">Kode Login</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" name="kode" placeholder="Kode Login" value="<?php echo $lg['Kd_Login'] ?>" disabled/>
+		        <input type="text" class="form-control" name="kode" placeholder="Kode Login" value="<?php echo $lg['Kd_Login'] ?>">
 		      </div>
 		    </div>
 		    <div class="form-group row">
-		      <label for="NMCL" class="col-sm-4 col-form-label">Nama Cluster</label>
+		      <label for="NMCL" class="col-sm-4 col-form-label">Nama User</label>
 		      <div class="col-sm-6">
-		        <input type="text" class="form-control" name="nama_lg" placeholder="Nama Aplikasi" value="<?php echo $lg['Nm_Login'] ?>">
+		        <input type="text" class="form-control" name="nama_lg" placeholder="Nama User" value="<?php echo $lg['Nm_Login'] ?>">
 		      </div>
 		    </div>
+
+		    <div class="form-group row">
+		      <label for="NMCL" class="col-sm-4 col-form-label">Email User</label>
+		      <div class="col-sm-6">
+		        <input type="text" class="form-control" name="eml_lg" placeholder="Email User" value="<?php echo $lg['Eml_Login'] ?>">
+		      </div>
+		    </div>
+
+		    
+
 		    <div class="form-group row">
 		      <div class="col-sm-10">
 		        <button type="submit" class="btn btn-primary btn-block" value="Submit" name="submit">Submit</button>

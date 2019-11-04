@@ -126,21 +126,9 @@
           else if ($_GET['page'] == 'edit_websrv'){
             include "halaman/edit_webserv.php";
           }
-          //Login
-          else if ($_GET['page'] == 'input_login'){
-            include "halaman/input_login.php";
-          }
-          else if ($_GET['page'] == 'lihat_login'){
-            include "halaman/daftar_login.php";
-          }
-          else if ($_GET['page'] == 'edit_login'){
-            include "halaman/edit_login.php";
-          }
+          
           
           // User
-          else if ($_GET['page'] == 'input_login'){
-            include "halaman/input_login.php";
-          }
           else if ($_GET['page'] == 'lihat_login'){
             include "halaman/daftar_login.php";
           }
@@ -159,6 +147,9 @@
           }
           else if ($_GET['page'] == 'edit_transaksi'){
             include "halaman/edit_transaksi.php";
+          }
+          else if ($_GET['page'] == 'download_transaksi'){
+            include "halaman/download_transaksi.php";
           }
        
         ?> 

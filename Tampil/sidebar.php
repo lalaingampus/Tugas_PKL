@@ -32,13 +32,10 @@
                         <a href="?page=lihat_db">Ref. Database</a>
                     </li>
                     <li>
-                        <a href="?page=lihat_login">Ref. Login</a>
+                        <a href="?page=lihat_login">Ref. User</a>
                     </li>
                     <li>
                         <a href="#">Ref. System Update</a>
-                    </li>
-                    <li>
-                        <a href="#">Ref. User</a>
                     </li>
                 </ul>
             </li>    

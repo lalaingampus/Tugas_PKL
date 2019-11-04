@@ -3,25 +3,25 @@ if(isset($_GET['head'])){
   $hd = $_GET['head'];
   $hdn = $_GET['nama'];
   if($_GET['type'] == 'cluster'){
-    $tsql = "Select tb_apk.*, tb_cluster.*, tb_login.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_login, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdCluster='$hd' and tb_apk.KdDB = tb_db.Kd_DB and tb_apk.KdLogin = tb_login.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
+    $result = "Select tb_apk.*, tb_cluster.*, tb_regis.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_regis, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdCluster='$hd' and tb_apk.KdDB = tb_db.Kd_DB and tb_apk.KdRegis = tb_regis.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
   }
   else if ($_GET['type'] == 'db'){
-    $tsql = "Select tb_apk.*, tb_cluster.*, tb_login.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_login, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdDB = tb_db.Kd_DB  and tb_apk.KdDB = '$hd' and tb_apk.KdLogin = tb_login.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
+    $result = "Select tb_apk.*, tb_cluster.*, tb_regis.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_regis, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdDB = tb_db.Kd_DB  and tb_apk.KdDB = '$hd' and tb_apk.KdRegis = tb_regis.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
   }
-  else if ($_GET['type'] == 'login'){
-    $tsql = "Select tb_apk.*, tb_cluster.*, tb_login.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_login, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdLogin = tb_login.Kd_Login  and tb_apk.KdDB =  tb_db.Kd_DB and tb_apk.KdLogin = '$hd' and tb_apk.KdWS = tb_ws.Kd_WebSrv";
+  else if ($_GET['type'] == 'regis'){
+    $result = "Select tb_apk.*, tb_cluster.*, tb_regis.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_regis, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdRegis = tb_regis.Kd_Login  and tb_apk.KdDB =  tb_db.Kd_DB and tb_apk.KdRegis = '$hd' and tb_apk.KdWS = tb_ws.Kd_WebSrv";
   }
   else if ($_GET['type'] == 'ws'){
-    $tsql = "Select tb_apk.*, tb_cluster.*, tb_login.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_login, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdWS = tb_ws.Kd_WebSrv  and tb_apk.KdDB =  tb_db.Kd_DB and tb_apk.KdLogin = tb_login.Kd_Login and tb_apk.KdWS = '$hd'";
+    $result = "Select tb_apk.*, tb_cluster.*, tb_regis.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_regis, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdWS = tb_ws.Kd_WebSrv  and tb_apk.KdDB =  tb_db.Kd_DB and tb_apk.KdRegis = tb_regis.Kd_Login and tb_apk.KdWS = '$hd'";
   }
 }
 else{
 $_GET['head'] ="";
 $hdn = "";
-$tsql = "Select tb_apk.*, tb_cluster.*, tb_login.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_login, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdDB = tb_db.Kd_DB and tb_apk.KdLogin = tb_login.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
+$result = "Select tb_apk.*, tb_cluster.*, tb_regis.*, tb_db.*, tb_ws.* from tb_cluster, tb_apk, tb_regis, tb_db, tb_ws where tb_apk.KdCluster = tb_cluster.Kd_Cluster and tb_apk.KdDB = tb_db.Kd_DB and tb_apk.KdRegis = tb_regis.Kd_Login and tb_apk.KdWS = tb_ws.Kd_WebSrv";
 }
 //$conn = mysqli_connect( $serverName, $connectionInfo);
-$stmt = mysqli_query( $conn, $tsql);
+$stmt = mysqli_query( $conn, $result);
 // if( $stmt === false ) {
 //       echo "Error in executing query.</br>";
 //       die( print_r( mysqli_errors(), true));

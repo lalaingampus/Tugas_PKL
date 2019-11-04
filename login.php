@@ -9,7 +9,7 @@
 
   if(isset($_POST["registrasi"])) {
     if( register($_POST) > 0 ) {
-      echo "<script>alert('user baru telah ditambahkan')</script>";
+      header("Location: index.html");
     }
     else {
       echo mysqli_error($conn);
@@ -41,7 +41,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login & Sign Up Form Concept</title>
+  <title>Daftar Dulu</title>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
   <link rel="stylesheet" href="aset/css/styleLogin.css">
@@ -51,7 +51,7 @@
 <!-- partial:index.partial.html -->
 <div class="cotn_principal">
 <div class="cont_centrar">
-
+    
   <div class="cont_login">
 
 <div class="cont_info_log_sign_up">
@@ -99,8 +99,8 @@
   <a href="#" onclick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
   <a href="index.html" class="home" onclick="ocultar_login_sign_up()" >Home</a>
    <h2>LOGIN</h2>
-  <input type="text" name="Eml_Login" placeholder="Email" />
-  <input type="password" name="Pass_Login" placeholder="Password" />
+  <input type="text" name="Eml_Login" placeholder="Email" required oninvalid="this.setCustomValidity('Ini Belum Diisi Goblok')" oninput="this.setCustomValidity('')"/>
+  <input type="password" name="Pass_Login" placeholder="Password"  required oninvalid="this.setCustomValidity('Password belum diisi juga Goblok')" oninput="this.setCustomValidity('')"/>
   <button class="btn_login" name="login" onclick="cambiar_login()">LOGIN</button>
   </div>
   </form>
@@ -110,10 +110,10 @@
   <div class="cont_form_sign_up">
 <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
      <h2>SIGN UP</h2>
-<input type="text" name="Nm_Login" placeholder="Nama" />
-<input type="text" name="Eml_Login" placeholder="Email" />
-<input type="password" name="Pass_Login" placeholder="Password" />
-<input type="password" name="Copass_Login" placeholder="Confirm Password" />
+<input type="text" name="Nm_Login" placeholder="Nama" required oninvalid="this.setCustomValidity('Ini Belum Diisi Goblok')" oninput="this.setCustomValidity('')"/>
+<input type="text" name="Eml_Login" placeholder="Email" required oninvalid="this.setCustomValidity('Ini Juga Belum Diisi Goblok')" oninput="this.setCustomValidity('')"/>
+<input type="password" name="Pass_Login" placeholder="Password" required oninvalid="this.setCustomValidity('Hidih Ini Belum Diisi Goblok')" oninput="this.setCustomValidity('')"/>
+<input type="password" name="Copass_Login" placeholder="Confirm Password" required oninvalid="this.setCustomValidity('Dasar Goblok')" oninput="this.setCustomValidity('')"/>
 <button class="btn_sign_up" name="registrasi" onclick="cambiar_sign_up()">SIGN UP</button>
 
   </div>

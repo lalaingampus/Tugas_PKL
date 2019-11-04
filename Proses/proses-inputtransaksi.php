@@ -4,7 +4,8 @@ include("konek.php");
 
 // cek apakah tombol daftar sudah diklik atau blum?
 if(isset($_POST['submit'])){
-
+    var_dump($_POST);
+                
     // ambil data dari formulir
     $no_reg = $_POST['no_reg'];
     $apk = $_POST['aplikasi'];
@@ -22,22 +23,31 @@ if(isset($_POST['submit'])){
     $prb = $_POST['perubahan'];
     $update = $_POST['sysUpdate'];
 
-    // buat query
-    $sql = "INSERT INTO tb_transaksi VALUES(null, '$no_reg', '$date', '$date1', '$apk', '$ver', '$date2','$ftr', '$fng', '$ket', '$prb', '$pgm', '$update')";
-    $query = mysqli_query($conn, $sql);
+    $allow = array('pdf','doc','docx');
+    $data = $_FILES['file']['name'];
+    $extension = explode('.', $data);
+    $key = strtolower(end($extension));
+    $size = $_FILES['file']['size'];
+    $lokasi = $_FILES['file']['tmp_name'];
 
-    // apakah query simpan berhasil?
-    if( $query ) {
-        // kalau berhasil alihkan ke halaman index.php dengan status=sukses
-        header('Location: ../index.php?status=sukses&page=lihat_transaksi');
+    if(in_array($key, $allow) === true ) {
+        if($size < 5000000) {
+            move_uploaded_file($lokasi, 'files/'.$data);
+            $sql = "INSERT INTO tb_transaksi VALUES(null, '$no_reg', '$date', '$date1', '$apk', '$ver', '$date2','$ftr', '$fng', '$ket', '$prb', '$pgm', '$update', '$data')";
+            $query = mysqli_query($conn, $sql);
+            if($query) {
+                echo "data berhasil diupload";
+                header('Location: ../index.php?status=sukses&page=lihat_transaksi');
+             } else {
+                echo "data gagal diupload";
+                header('Location: ../index.php?status=gagal&page=lihat_transaksi');
+            }
+        } else {
+            echo 'Ukuran file terlalu besar';
+        }
     } else {
-        // kalau gagal alihkan ke halaman indek.php dengan status=gagal
-        //echo "Error in executing query.</br>";
-        //die( print_r( sqlsrv_errors(), true));
-        header('Location: ../index.php?status=gagal&page=lihat_transaksi');
+        echo "extensi file tidak diperbolehkan";
     }
-
-
 } else {
     die("Akses dilarang...");
 }

@@ -28,9 +28,10 @@ $db = mysqli_fetch_array($query);
       <div class="row"> 
         <div class="col-3"></div>
         <div class="col-8">
-       <form action="Proses/proses-edittransaksi.php" method="POST">
+       <form action="Proses/proses-edittransaksi.php" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
           <input type="hidden" name="kode" value="<?php echo $db['Kd_Transaksi'] ?>" />
+          <input type="hidden" name="fileLama" value="<?php echo $db['data'] ?>" />
           <label for="KDCL" class="col-sm-4 col-form-label">Kode Transaksi</label>
           <div class="col-sm-6">
             <input type="text" class="form-control" name="kode" placeholder="Kode Transaksi" value="<?php echo $db['Kd_Transaksi'] ?>" disabled/>
@@ -127,6 +128,14 @@ $db = mysqli_fetch_array($query);
                 </select>
               </div>
             </div>
+
+            <div class="form-group row">
+              <label for="NMCL" class="col-sm-4 col-form-label">User Manual</label>
+              <div class="col-sm-6">
+                <file src="file/<?= $db['data']; ?>">
+                <input type="file" class="form-control" name="file" id="file" value="<?php echo $db['data'] ?>">
+              </div>
+            </div> 
 
         <div class="form-group row">
           <div class="col-sm-10">

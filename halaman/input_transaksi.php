@@ -154,7 +154,7 @@
            <div class="form-group row">
               <label for="NMCL" class="col-sm-4 col-form-label">User Manual</label>
               <div class="col-sm-6">
-                <input type="file" class="form-control" name="pdf" id="tgl">
+                <input type="file" class="form-control" name="file" id="file">
               </div>
             </div>           
 

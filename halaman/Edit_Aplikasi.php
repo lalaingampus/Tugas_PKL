@@ -10,7 +10,7 @@ $perintah="select * from tb_cluster where Sts_Cluster='Aktif'";
 $queryq=mysqli_query($conn,$perintah);
 
 $perintah2="select * from tb_db";
-$perintah4="select * from tb_login";
+
 $perintah3="select * from tb_ws";
 $query4=mysqli_query($conn,$perintah4);
 $query2=mysqli_query($conn,$perintah2);
@@ -72,7 +72,7 @@ $query3=mysqli_query($conn,$perintah3);
             <div class="form-group row">
               <label for="exampleFormControlTextarea1"  class="col-sm-3 col-form-label">Fungsi Aplikasi</label>
               <div class="col-sm-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fungsi" placeholder="Tuliskan fungsi dari Aplikasi...""><?php echo $apk['Fungsi_Apk'] ?></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fungsi" placeholder="Tuliskan fungsi dari Aplikasi..."><?php echo $apk['Fungsi_Apk'] ?></textarea>
               </div>
             </div>  
             <div class="form-group row">
@@ -123,16 +123,7 @@ $query3=mysqli_query($conn,$perintah3);
               </select>
             </div>
           </div> 
-          <div class="form-group row">
-            <label class="col-form-label col-sm-3">Login</label>
-            <div class="col-sm-6">
-              <select class="form-control text-center" name="lg">
-              <?php while($data4=mysqli_fetch_array($query4)){?>
-                <option value="<?php echo $data4['Kd_Login'];?>"<?php echo ($apk['KdLogin'] == $data4['Kd_Login']) ? "selected": "" ?>> <?php echo $data4['Kd_Login']." - ".$data4['Nm_Login'];?></option>
-              <?php } ?>
-              </select>
-            </div>
-            </div> 
+           
             <div class="form-group row">
               <div class="col-sm-9">
                 <button type="submit" class="btn btn-primary btn-block" value="Submit" name="submit">Submit</button>

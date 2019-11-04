@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
     $st = $_POST['status'];
     $fs = $_POST['fungsi'];
     // buat query
-    $sql= "Insert into tb_apk values('$kd_apk','$nm_apk', '$st', '$fs', '$url', '$date', '$ip','$cl', '$db', '$lg', '$ws')";
+    $sql= "Insert into tb_apk values('$kd_apk','$nm_apk', '$st', '$fs', '$url', '$date', '$ip','$cl', '$db', '$ws', '$lg')";
     $query = mysqli_query($conn, $sql);
 
     // apakah query simpan berhasil?

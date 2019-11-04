@@ -34,9 +34,9 @@ $result = mysqli_query($conn, $sql);
             <td class="text-center align-middle"> <?php echo $row['Kd_WebSrv'] ?></td>
             <td class="text-center align-middle"> <?php echo $row['Nm_WebSrv'] ?></td>
             <td class="text-center align-middle">
-            <a href="?page=edit_websrv&kode=<?php echo $row['Kd_WebSrv'] ?>" class ="btn btn-primary btn-xs fa fa-edit" >   Edit</a> |
-            <a href='Proses/proses-hapusws.php?kode=<?php echo $row['Kd_WebSrv'] ?> ' class = "btn btn-danger btn-xs fa fa-trash"  onclick="return confirm('Menghapus data ini berarti menghapus juga data Aplikasi yang ada dalam Web Server ini. Yakin hapus data?');">  Hapus</a> |
-            <a <?php echo "href=" ?>"?page=lihat_apk&head=<?php echo $row['Kd_WebSrv']?>&nama=<?php echo $row['Nm_WebSrv']?>&type=ws" class="btn btn-info fa fa-search" >Lihat</a>
+            <a href="?page=edit_webserv&kode=<?php echo $row['Kd_WebSrv'] ?>" class ="btn btn-primary btn-xs fa fa-edit" ></a> |
+              <a href='Proses/proses-hapuswebserv.php?kode=<?php echo $row['Kd_WebSrv'] ?> ' class = "btn btn-danger btn-xs fa fa-trash"  onclick="return confirm('Hapus data?');"></a> |
+              <a href="?page=lihat_apk&kode=<?php echo $row['Kd_WebSrv'] ?>" class ="btn btn-info btn-xs fa fa-info-circle" ></a>
             <?php echo "</td>"; ?> 
             </tr>
             <?php $no++;

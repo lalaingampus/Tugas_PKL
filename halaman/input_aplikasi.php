@@ -2,7 +2,7 @@
   $perintah="select * from tb_cluster where Sts_Cluster='Aktif'";
   $perintah2="select * from tb_db";
   $perintah3="select * from tb_ws";
-  $perintah4="select * from tb_login";
+  $perintah4="select * from tb_regis";
   $query4=mysqli_query($conn,$perintah4);
   $query=mysqli_query($conn,$perintah);
   $query2=mysqli_query($conn,$perintah2);
@@ -61,7 +61,7 @@
             <div class="form-group row">
               <label for="exampleFormControlTextarea1"  class="col-sm-3 col-form-label">Fungsi Aplikasi</label>
               <div class="col-sm-6">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fungsi" placeholder="Tuliskan fungsi dari Aplikasi...""></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="fungsi" placeholder="Tuliskan fungsi dari Aplikasi..."></textarea>
               </div>
             </div>  
             <div class="form-group row">
@@ -113,11 +113,12 @@
             </div>
           </div> 
           <div class="form-group row">
-            <label class="col-form-label col-sm-3">Login</label>
+            <label class="col-form-label col-sm-3">User</label>
             <div class="col-sm-6">
               <select class="form-control text-center" name="lg">
-              <?php while($data4=mysqli_fetch_array($query4)){?>
-                <option value="<?php echo $data4['Kd_Login'];?>"> <?php echo $data4['Kd_Login']." - ".$data4['Nm_Login'];?></option>
+              <?php while($data4=mysqli_fetch_array($query4)) {?>
+                <option value="<?php echo $data4['Kd_Login'];?>"> 
+                  <?php echo $data4['Kd_Login']." - ".$data4['Nm_Login'];?></option>
               <?php } ?>
               </select>
             </div>

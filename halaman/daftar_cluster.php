@@ -38,10 +38,9 @@ $result = mysqli_query($conn, $sql);
             <td class="text-center align-middle"> <?php echo $row['Nm_Cluster'] ?></td>
             <td class="text-center align-middle"> <?php echo $row['Sts_Cluster'] ?></td>
             <td class="text-center align-middle">
-            <a href="?page=edit_cluster&kode=<?php echo $row['Kd_Cluster'] ?>" class ="btn btn-primary btn-xs fa fa-edit" >  Edit</a> |
-            <a href='Proses/proses-hapus.php?kode=<?php echo $row['Kd_Cluster'] ?> ' class = "btn btn-danger btn-xs fa fa-trash"  onclick="return confirm('Menghapus data ini berarti menghapus juga data Aplikasi yang ada dalam Cluster ini. Yakin hapus data?');"> Hapus</a> |
-            <a <?php echo "href=" ?>"?page=lihat_apk&head=<?php echo $row['Kd_Cluster']?>&nama=<?php echo $row['Nm_Cluster']?>&type=cluster" class="btn btn-info fa fa-search" >Lihat</a>
-            <?php echo "</td>"; ?> 
+             <a href="?page=edit_cluster&kode=<?php echo $row['Kd_Cluster'] ?>" class ="btn btn-primary btn-xs fa fa-edit" ></a> |
+              <a href='Proses/proses-hapuscluster.php?kode=<?php echo $row['Kd_Cluster'] ?> ' class = "btn btn-danger btn-xs fa fa-trash"  onclick="return confirm('Hapus data?');"></a> |
+              <a href="?page=lihat_apk&kode=<?php echo $row['Kd_Cluster'] ?>" class ="btn btn-info btn-xs fa fa-info-circle" ></a>
             </tr>
             <?php $no++;
           }?>
